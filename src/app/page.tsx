@@ -12,6 +12,7 @@ import Search from "./components/Search";
 import { useRouter } from "next/navigation"; // Import the router
 import { AppContextProvider } from "./AppContext";
 import SignIn from "./components/SignIn";
+import { useSession, signIn } from "next-auth/react"
 
 // Wrap ScaleLoader with React.memo
 const MemoizedScaleLoader = memo(ScaleLoader);
@@ -24,6 +25,7 @@ export default function Home() {
   const [signedIn, setSignedIn] = useState(true);
   const router = useRouter();
   const AppContext = useContext(AppContextProvider);
+  const { data: session } = useSession();
 
   useEffect(() => {
     setSignedIn(false);
@@ -59,11 +61,11 @@ export default function Home() {
       }
     },
     [AppContext, router]
-  ); // Add dependencies
+  );
 
   return (
     <div className="bg-cover bg-[url('../../public/images/sf.png')] h-screen flex items-center justify-center bg-gray-100">
-      {!signedIn && <SignIn />}
+      {!session && <SignIn signIn={signIn}/>}
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-50 z-50">
           <MemoizedScaleLoader color="#0eade8" />

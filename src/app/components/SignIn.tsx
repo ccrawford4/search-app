@@ -21,7 +21,11 @@ const style = {
   borderRadius: 2,
 };
 
-export default function SignIn() {
+interface SearchProps {
+  signIn: () => void
+};
+
+export default function SignIn(props: SearchProps) {
   return (
     <div>
       <Box sx={style}>
@@ -48,6 +52,7 @@ export default function SignIn() {
           variant="contained"
           color="primary"
           fullWidth
+          onClick={() => props.signIn}
           sx={{ mt: 2, mb: 2 }}
         >
           Sign In
