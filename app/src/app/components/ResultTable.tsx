@@ -5,6 +5,9 @@ interface ResultTableProps {
 }
 
 export default function ResultTable(props: ResultTableProps) {
+    if (!props || !props.hits || props.hits.length === 0) {
+        return <div>No results found</div>
+    }
     return (
         <table>
             <thead>

@@ -19,7 +19,7 @@ export default function SearchInput(props: SearchInputProps) {
             renderInput={(params) =>
                 <TextField
                     {...params}
-                    label="Search Term"
+                    placeholder='Search...'
                 />
             }
         />
