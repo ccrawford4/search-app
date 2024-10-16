@@ -6,24 +6,31 @@ interface ResultTableProps {
 
 export default function ResultTable(props: ResultTableProps) {
     if (!props || !props.hits || props.hits.length === 0) {
-        return <div>No results found</div>
+        return <div className="text-center text-gray-500">No results found</div>;
     }
+
     return (
-        <table>
-            <thead>
-            <tr>
-                <th>URL</th>
-                <th>TFIDF</th>
-            </tr>
-            </thead>
-            <tbody>
-            {props.hits.map(((hit, index) => (
-                <tr key={index}>
-                    <td><a className="text-blue" href={hit.URL}>{hit.URL}</a></td>
-                    <td>{hit.TFIDF}</td>
-                </tr>
-            )))}
-            </tbody>
-        </table>
+        <div className="overflow-x-auto w-full">
+            <table className="min-w-full bg-white shadow-md rounded-lg">
+                <thead>
+                    <tr className="bg-gray-200">
+                        <th className="text-left p-4 text-sm font-semibold text-gray-700">URL</th>
+                        <th className="text-left p-4 text-sm font-semibold text-gray-700">TFIDF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {props.hits.map((hit, index) => (
+                        <tr key={index} className="hover:bg-gray-100">
+                            <td className="p-4 text-blue-600 hover:underline">
+                                <a href={hit.URL} target="_blank" rel="noopener noreferrer">
+                                    {hit.URL}
+                                </a>
+                            </td>
+                            <td className="p-4 text-gray-900">{hit.TFIDF}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
     );
 }

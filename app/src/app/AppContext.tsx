@@ -4,11 +4,13 @@ import { HIT } from "./types";
 
 
 interface AppContextType {
+    searchQuery: string;
     results: HIT[];
 }
 
 const defaultContext: AppContextType = {
-    results: []
+    results: [],
+    searchQuery: "",
 };
 
 export const AppContextProvider = createContext<AppContextType>(defaultContext);
