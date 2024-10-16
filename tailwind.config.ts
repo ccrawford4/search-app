@@ -13,6 +13,9 @@ const config: Config = {
         foreground: "var(--foreground)",
       },
     },
+    fontWeight: {
+      'lb': '900',
+    }
   },
   plugins: [],
 };
