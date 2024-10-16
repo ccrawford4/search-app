@@ -12,11 +12,10 @@ export default function SearchResults() {
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-gray-900">
             <div className="bg-white shadow-md rounded-lg p-8 max-w-4xl w-full">
                 <h1 className="text-3xl font-semibold mb-4 text-center">
-                    Search Results for: <span className="text-blue-600">{AppContext.searchQuery}</span>
+                    {AppContext.results && AppContext.results.length > 0 ? "Search Results " : "No results found "} 
+                    for: <span className="text-blue-600">{AppContext.searchQuery}</span>
                 </h1>
-
                 <ResultTable hits={AppContext.results} />
-
                 <div className="mt-6 text-center">
                     <Link className="text-blue-600 hover:underline" href="/">
                         Back to search

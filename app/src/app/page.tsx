@@ -1,6 +1,6 @@
 "use client";
 
-import RingLoader from 'react-spinners/RingLoader';
+import ScaleLoader from 'react-spinners/ScaleLoader';
 import React, {useContext, useState} from "react";
 import Search from './components/Search';
 import { getResults } from './api/search';
@@ -29,10 +29,10 @@ export default function Home() {
   }
 
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
+    <div className="bg-cover bg-[url('../../public/images/sf.png')] h-screen flex items-center justify-center bg-gray-100">
         {isLoading && (
             <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-50 z-50">
-                <RingLoader color="blue" />
+                <ScaleLoader color="#0eade8" />
             </div>
         )}
         <div className="relative text-center p-8 bg-white shadow-lg rounded-xl max-w-lg w-full">

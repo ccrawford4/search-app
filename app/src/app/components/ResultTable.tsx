@@ -6,7 +6,7 @@ interface ResultTableProps {
 
 export default function ResultTable(props: ResultTableProps) {
     if (!props || !props.hits || props.hits.length === 0) {
-        return <div className="text-center text-gray-500">No results found</div>;
+        return <div></div>
     }
 
     return (
