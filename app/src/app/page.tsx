@@ -1,13 +1,16 @@
+"use client";
+
 import RingLoader from 'react-spinners/RingLoader';
-import {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(false);
 
+  useEffect(() => {
+    setIsLoading(true);
+  }, []);
 
-    useEffect(() => {
-        
-    })
+
   return (
       <div className="h-screen flex flex-col items-center justify-center bg-gray-100 pt-32">
         {isLoading && (
