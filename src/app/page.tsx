@@ -20,8 +20,8 @@ export default function Home() {
           console.log("Response: ", response);
           AppContext.results = response.HITS;
           AppContext.searchQuery = searchQuery;
-          setIsLoading(false);
           router.push("/results");
+          setIsLoading(false);
       } catch (error) {
           setIsLoading(false);
           console.error("Error fetching results: ", error);
