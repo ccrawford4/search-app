@@ -3,23 +3,34 @@
 import ScaleLoader from 'react-spinners/ScaleLoader';
 import React, {useContext, useState} from "react";
 import Search from './components/Search';
-import { getResults } from './api/search';
 import { useRouter } from 'next/navigation';  // Import the router
 import { AppContextProvider } from './AppContext';
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(false);
     const router = useRouter();
-    const AppContext = useContext(AppContextProvider);
+   const AppContext = useContext(AppContextProvider);
 
     const handleSearch = async (searchQuery: string) => {
       console.log("Handle search triggered");
       setIsLoading(true);
       try {
-          const response = await getResults(searchQuery);
+          const response = await fetch("/api/search", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    searchQuery: searchQuery,
+                }),
+          });
           console.log("Response: ", response);
-          AppContext.results = response.HITS;
-          AppContext.searchQuery = searchQuery;
+          if (!response.ok) {
+            console.error("Error: ", response.statusText);
+          }
+          const data = await response.json();
+          AppContext.results.HITS = data.HITS;
+          AppContext.results.QUERY = searchQuery;
           router.push("/results");
           setIsLoading(false);
       } catch (error) {
