@@ -47,7 +47,7 @@ export default function Home() {
     }, [AppContext, router]); // Add dependencies
 
     return (
-        <div className="bg-cover bg-[url('../../public/images/sf.png')] h-screen flex items-center justify-center bg-gray-100">
+        <div className="bg-cover bg-[url('../../public/images/sf.png')] h-screen flex items-center justify-center">
             {isLoading && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-100 bg-opacity-50 z-50">
                     <MemoizedScaleLoader color="#0eade8" />

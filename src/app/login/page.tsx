@@ -1,15 +1,20 @@
-import { LoginForm } from "./form";
+"use client";
+
+import SignIn from "../components/SignIn";
+import { signIn } from "next-auth/react";
 
 export default function LoginPage() {
+  const handleSignInFlow = (provider: string) => {
+    console.log("provider", provider);
+    signIn(provider, { callbackUrl: "/" });
+  }
+
+
   return (
-    <>
-      <section className="bg-ct-blue-600 min-h-screen pt-20">
-        <div className="container mx-auto px-6 py-12 h-full flex justify-center items-center">
-          <div className="md:w-8/12 lg:w-5/12 bg-white px-8 py-10">
-            <LoginForm />
-          </div>
-        </div>
-      </section>
-    </>
+    <div className="bg-cover bg-[url('../../public/images/sf.png')] h-screen flex items-center justify-center">
+      <SignIn 
+        signIn={handleSignInFlow}
+      />
+    </div>
   );
 }
