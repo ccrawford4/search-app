@@ -5,3 +5,4 @@
 2. Next.js
 3. NextAuth
 4. TailwindCSS
+
