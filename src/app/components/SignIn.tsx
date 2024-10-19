@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 // import Divider from '@mui/material/Divider';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import GoogleIcon from '@mui/icons-material/Google';
+// import GoogleIcon from '@mui/icons-material/Google';
 // import MicrosoftIcon from '@mui/icons-material/Microsoft';
 
 const style = {
@@ -69,7 +69,7 @@ export default function SignIn(props: SignInProps) {
         >
           Sign in with GitHub
         </Button>
-        <Button
+        {/* <Button
           onClick={() => props.signIn("google")}
           variant="outlined"
           fullWidth
@@ -77,7 +77,7 @@ export default function SignIn(props: SignInProps) {
           sx={{ mb: 1 }}
         >
           Sign in with Google
-        </Button>
+        </Button> */}
         {/* <Button
           onClick={() => props.signIn("microsoft")}
           variant="outlined"

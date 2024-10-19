@@ -1,5 +1,3 @@
-import MillionLint from "@million/lint";
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
     return {
@@ -13,8 +11,4 @@ const nextConfig = {
   },
 };
 
-export default MillionLint.next({
-  enabled: true,
-  production: false,
-  rsc: true,
-})(nextConfig);
+export default nextConfig;
