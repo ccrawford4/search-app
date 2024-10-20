@@ -3,9 +3,6 @@ import GitHubProvider from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 
 export const authOptions: NextAuthOptions = {
-  pages: {
-    signIn: "/login"
-  },
   providers: [
     GitHubProvider({
       clientId: process.env.GITHUB_ID as string,
@@ -17,10 +14,4 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  callbacks: {
-    async jwt({ token }) {
-      token.userRole = "user"; // Add the userRole to the token
-      return token;
-    },
-  },
 };
