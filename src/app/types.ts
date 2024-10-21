@@ -1,4 +1,5 @@
 export interface HIT {
-    TFIDF: number
     URL: string
+    TITLE: string
+    DESCRIPTION: string
 }
