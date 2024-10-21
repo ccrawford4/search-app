@@ -69,6 +69,15 @@ export default function SignIn(props: SignInProps) {
         >
           Sign in with GitHub
         </Button>
+        <Button
+          onClick={() => props.signIn("credentials")}
+          variant="outlined"
+          fullWidth
+          style={{ cursor: "pointer" }}
+          sx={{ mb: 1 }}
+        >
+          Continue as Guest
+        </Button>
         {/* <Button
           onClick={() => props.signIn("google")}
           variant="outlined"

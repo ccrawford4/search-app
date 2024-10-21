@@ -61,6 +61,7 @@ export default function Home() {
   ); // Add dependencies
 
   const handleSignInFlow = (provider: string) => {
+    console.log("Sign in with: ", provider);
     signIn(provider, { callbackUrl: "/" });
   };
 
