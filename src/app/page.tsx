@@ -21,11 +21,11 @@ export default function Home() {
   const AppContext = useContext(AppContextProvider);
   const { data: session } = useSession();
 
-  // Use useCallback to memoize handleSearch
   const handleSearch = useCallback(
     async (searchQuery: string) => {
       console.log("Handle search triggered");
       setIsLoading(true);
+
       try {
         const response = await fetch("/api/search", {
           method: "POST",
@@ -37,23 +37,31 @@ export default function Home() {
           }),
         });
         console.log("Response: ", response);
+
         if (!response.ok) {
           console.error("Error: ", response.statusText);
         }
+
         const data = await response.json();
+        console.log("Data: ", data);
         AppContext.results.HITS = data.HITS;
         AppContext.results.QUERY = searchQuery;
+
         router.push("/results");
         setIsLoading(false);
       } catch (error) {
+        console.error("Error: ", error);
         setIsLoading(false);
-        console.error("Error fetching results: ", error);
+        AppContext.results.HITS = [];
+        AppContext.results.QUERY = searchQuery;
+        router.push("/results");
       }
     },
     [AppContext, router]
   ); // Add dependencies
 
   const handleSignInFlow = (provider: string) => {
+    console.log("Sign in with: ", provider);
     signIn(provider, { callbackUrl: "/" });
   };
 
