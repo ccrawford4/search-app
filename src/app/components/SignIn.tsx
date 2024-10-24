@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 // import Divider from '@mui/material/Divider';
 import GitHubIcon from '@mui/icons-material/GitHub';
-// import GoogleIcon from '@mui/icons-material/Google';
+import GoogleIcon from '@mui/icons-material/Google';
 // import MicrosoftIcon from '@mui/icons-material/Microsoft';
 
 const style = {
@@ -61,6 +61,15 @@ export default function SignIn(props: SignInProps) {
         <Divider sx={{ mb: 2 }}>OR</Divider> */}
 
         <Button
+          onClick={() => props.signIn("google")}
+          variant="outlined"
+          fullWidth
+          startIcon={<GoogleIcon />}
+          sx={{ mb: 1 }}
+        >
+          Sign in with Google
+        </Button>
+        <Button
           onClick={() => props.signIn("github")}
           variant="outlined"
           fullWidth
@@ -78,15 +87,6 @@ export default function SignIn(props: SignInProps) {
         >
           Continue as Guest
         </Button>
-        {/* <Button
-          onClick={() => props.signIn("google")}
-          variant="outlined"
-          fullWidth
-          startIcon={<GoogleIcon />}
-          sx={{ mb: 1 }}
-        >
-          Sign in with Google
-        </Button> */}
         {/* <Button
           onClick={() => props.signIn("microsoft")}
           variant="outlined"
