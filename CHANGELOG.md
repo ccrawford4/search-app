@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/ccrawford4/search-app/compare/v1.0.0...v1.1.0) (2025-04-23)
+
+
+### Features
+
+* **ci:** dockerize ([c311f57](https://github.com/ccrawford4/search-app/commit/c311f57c40215dfceb1e5597bbc8250b409b9746))
+
 # 1.0.0 (2025-04-23)
 
 
