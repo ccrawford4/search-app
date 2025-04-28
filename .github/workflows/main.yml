@@ -1,4 +1,4 @@
-name: Semantic  Release
+name: Publish Release and Push to ECR
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  packages: write
+  id-token: write
   contents: write
 
 jobs:
@@ -22,7 +22,6 @@ jobs:
         uses: webiny/action-conventional-commits@v1.3.0
 
   release:
-    needs: check
     runs-on: ubuntu-latest
     name: Semantic Release
     outputs:
@@ -37,3 +36,15 @@ jobs:
         uses: cycjimmy/semantic-release-action@v4.1.1
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+  build:
+    needs: release
+    if: needs.release.outputs.new_release_version != ''
+    uses: ./.github/workflows/build.yml
+    with:
+      tag: ${{ needs.release.outputs.new_release_version }}
+    secrets:
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      AWS_ACCOUNT: ${{ secrets.AWS_ACCOUNT }}
+      ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+      ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
