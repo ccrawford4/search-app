@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/ccrawford4/search-app/compare/v1.2.0...v1.3.0) (2025-05-04)
+
+
+### Features
+
+* **test:** test words ([5bd21b1](https://github.com/ccrawford4/search-app/commit/5bd21b16349087bd34e2b6cf63cead91cc9e2d9b))
+
 # [1.2.0](https://github.com/ccrawford4/search-app/compare/v1.1.0...v1.2.0) (2025-04-28)
 
 
