@@ -86,7 +86,7 @@ export default function Home() {
           )}
           <div className="relative text-center p-8 bg-white shadow-lg rounded-xl max-w-lg w-full">
             <h1 className="text-3xl font-semibold mb-4 text-gray-800">
-              {`Welcome ${getFirstName(session.user?.name)} 🎉`}
+              {`Welcome ${getFirstName(session.user?.name)} 🎉🎉`}
             </h1>
             <h2 className="text-lg mb-6 text-gray-500">Search for a term</h2>
             <MemoizedSearch handleSearch={handleSearch} isLoading={isLoading} />
