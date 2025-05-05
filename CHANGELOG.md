@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/ccrawford4/search-app/compare/v1.3.1...v1.3.2) (2025-05-05)
+
+
+### Bug Fixes
+
+* use another emoji ([bd4262f](https://github.com/ccrawford4/search-app/commit/bd4262fb7915b7aebff92e9888fe4cb726baaa4c))
+
 ## [1.3.1](https://github.com/ccrawford4/search-app/compare/v1.3.0...v1.3.1) (2025-05-05)
 
 
