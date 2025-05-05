@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/ccrawford4/search-app/compare/v1.3.0...v1.3.1) (2025-05-05)
+
+
+### Bug Fixes
+
+* update title ([22f6684](https://github.com/ccrawford4/search-app/commit/22f6684f2fd44502b6c31ee9fff1abb5967eeda6))
+
 # [1.3.0](https://github.com/ccrawford4/search-app/compare/v1.2.0...v1.3.0) (2025-05-04)
 
 
