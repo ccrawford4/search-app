@@ -1,3 +1,11 @@
+# [1.5.0](https://github.com/ccrawford4/search-app/compare/v1.4.0...v1.5.0) (2025-05-21)
+
+
+### Features
+
+* updated frontend ([148a335](https://github.com/ccrawford4/search-app/commit/148a335e0dbae00cf486fb66ef2b2d5c32b811a0))
+* **updates:** added logs ([0f44c6a](https://github.com/ccrawford4/search-app/commit/0f44c6a8421d5fbdda28dd32646eca55c4028889))
+
 # [1.4.0](https://github.com/ccrawford4/search-app/compare/v1.3.4...v1.4.0) (2025-05-06)
 
 
