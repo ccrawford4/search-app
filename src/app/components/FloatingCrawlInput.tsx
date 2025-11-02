@@ -7,7 +7,7 @@ export default function FloatingCrawlInput() {
   const [isOpen, setIsOpen] = useState(false);
   const [host, setHost] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
+  const [message, setMessage] = useState<{ type: "success" | "error"; text: string; host?: string } | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,12 +28,13 @@ export default function FloatingCrawlInput() {
       const data = await response.json();
 
       if (response.ok) {
-        setMessage({ type: "success", text: "Crawl initiated successfully!" });
+        setMessage({ type: "success", text: "Started crawling", host: host.trim() });
+        const clearedHost = host;
         setHost("");
         setTimeout(() => {
           setMessage(null);
           setIsOpen(false);
-        }, 2000);
+        }, 8000);
       } else {
         setMessage({ type: "error", text: data.error || "Failed to initiate crawl" });
       }
@@ -141,13 +142,32 @@ export default function FloatingCrawlInput() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className={`mt-4 p-3 rounded-lg text-sm font-medium ${
+                  className={`mt-4 p-4 rounded-lg text-sm ${
                     message.type === "success"
-                      ? "bg-green-100 text-green-800"
+                      ? "bg-green-50 border border-green-200"
                       : "bg-red-100 text-red-800"
                   }`}
                 >
-                  {message.text}
+                  {message.type === "success" ? (
+                    <div className="space-y-2">
+                      <div className="flex items-center text-green-800">
+                        <span className="font-semibold">{message.text}</span>
+                        <span className="ml-2 font-mono font-bold">{message.host}</span>
+                        <motion.span
+                          className="ml-2 text-green-600"
+                          animate={{ opacity: [1, 0.3, 1] }}
+                          transition={{ duration: 1.5, repeat: Infinity }}
+                        >
+                          ●●●
+                        </motion.span>
+                      </div>
+                      <p className="text-xs text-green-700">
+                        Check back in 5-10 minutes to see the new results.
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="font-medium text-red-800">{message.text}</p>
+                  )}
                 </motion.div>
               )}
             </AnimatePresence>
