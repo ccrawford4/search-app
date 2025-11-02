@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "22.7.7",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^6.1.4",
     "@mui/material": "^6.1.4",
+    "@types/node": "22.7.7",
+    "framer-motion": "^12.23.24",
     "next": "14.2.15",
     "next-auth": "^4.24.8",
     "react": "^18",

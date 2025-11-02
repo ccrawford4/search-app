@@ -8,6 +8,7 @@ import { AppContextProvider } from "./AppContext";
 import { useSession } from "next-auth/react";
 import SignIn from "./components/SignIn";
 import { signIn } from "next-auth/react";
+import FloatingCrawlInput from "./components/FloatingCrawlInput";
 
 // Wrap ScaleLoader with React.memo
 const MemoizedScaleLoader = memo(ScaleLoader);
@@ -91,6 +92,7 @@ export default function Home() {
             <h2 className="text-lg mb-6 text-gray-500">Search for a term</h2>
             <MemoizedSearch handleSearch={handleSearch} isLoading={isLoading} />
           </div>
+          <FloatingCrawlInput />
         </>
       ) : (
         <SignIn signIn={handleSignInFlow} />
